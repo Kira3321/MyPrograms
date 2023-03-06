@@ -1,4 +1,4 @@
-﻿namespace Practice;
+﻿namespace Practice.TemplatesOOP;
 
 public interface ICall
 {

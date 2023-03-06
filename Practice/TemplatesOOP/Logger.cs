@@ -1,4 +1,4 @@
-﻿namespace Practice;
+﻿namespace Practice.TemplatesOOP;
 
 public class Logger
 {
