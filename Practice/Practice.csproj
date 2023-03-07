@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <Folder Include="MainScenario" />
+      <Folder Include="TemplatesOOP\SOLID" />
     </ItemGroup>
 
 </Project>
