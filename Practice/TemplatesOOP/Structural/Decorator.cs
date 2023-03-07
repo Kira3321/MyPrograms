@@ -1,4 +1,4 @@
-﻿namespace Practice.TemplatesOOP;
+﻿namespace Practice.TemplatesOOP.Structural;
 
 public interface IPizza
 {

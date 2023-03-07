@@ -1,4 +1,4 @@
-﻿namespace Practice.TemplatesOOP;
+﻿namespace Practice.TemplatesOOP.Behavior;
 
 public interface IStrategy
 {
