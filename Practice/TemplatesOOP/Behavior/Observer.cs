@@ -2,8 +2,13 @@
 
 public class Publisher
 {
-    private string _topic;
-    private List<Subscriber> _observers;
+    private readonly List<Subscriber> _observers;
+    private string _topic = "";
+
+    public Publisher()
+    {
+        _observers = new List<Subscriber>();
+    }
 
     public string Topic
     {
@@ -15,10 +20,15 @@ public class Publisher
         }
     }
 
-    public Publisher() => _observers = new List<Subscriber>();
+    public void Attach(Subscriber subscriber)
+    {
+        _observers.Add(subscriber);
+    }
 
-    public void Attach(Subscriber subscriber) => _observers.Add(subscriber);
-    public void Detach(Subscriber subscriber) => _observers.Remove(subscriber);
+    public void Detach(Subscriber subscriber)
+    {
+        _observers.Remove(subscriber);
+    }
 
     public void Notify()
     {
@@ -33,10 +43,16 @@ public abstract class Subscriber
 
 public class ConsoleSubscriber : Subscriber
 {
-    public override void Update(string value) => Console.WriteLine($"Новая тема: {value}\nОтправленно в консоль.");
+    public override void Update(string value)
+    {
+        Console.WriteLine($"Новая тема: {value}\nОтправленно в консоль.");
+    }
 }
 
-public class  EmailSubscriber: Subscriber
+public class EmailSubscriber : Subscriber
 {
-    public override void Update(string value) => Console.WriteLine($"Новая тема: {value}\nОтправленно на email.");
+    public override void Update(string value)
+    {
+        Console.WriteLine($"Новая тема: {value}\nОтправленно на email.");
+    }
 }

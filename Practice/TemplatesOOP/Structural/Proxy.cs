@@ -7,11 +7,14 @@ public class Data
     public string Information { get; set; }
 }
 
-
 public class Dbset<T> : IDisposable
 {
-    public List<T> Base = new List<T>();
-    public void Dispose() => Console.WriteLine("Уничтожили объект Dbset");
+    public List<T> Base = new();
+
+    public void Dispose()
+    {
+        Console.WriteLine("Уничтожили объект Dbset");
+    }
 }
 
 public interface IDatabase : IDisposable
@@ -22,24 +25,33 @@ public interface IDatabase : IDisposable
 
 public class DataBase : IDatabase
 {
-    private Dbset<Data> _store;
+    private readonly Dbset<Data> _store;
 
     public DataBase()
     {
         _store = new Dbset<Data>();
     }
 
-    public Data? ReadData(int id) => _store.Base.FirstOrDefault(x => x.Id == id);
+    public Data? ReadData(int id)
+    {
+        return _store.Base.FirstOrDefault(x => x.Id == id);
+    }
 
-    public void WriteData(Data data) => _store.Base.Add(data);
+    public void WriteData(Data data)
+    {
+        _store.Base.Add(data);
+    }
 
-    public void Dispose() => _store.Dispose();
+    public void Dispose()
+    {
+        _store.Dispose();
+    }
 }
 
 public class ProxyDataBase : IDatabase
 {
-    private List<Data> _datas;
-    private DataBase _store;
+    private readonly List<Data> _datas;
+    private DataBase? _store;
 
     public ProxyDataBase()
     {
@@ -63,5 +75,8 @@ public class ProxyDataBase : IDatabase
         store.WriteData(data);
     }
 
-    public void Dispose() => _store.Dispose();
+    public void Dispose()
+    {
+        _store.Dispose();
+    }
 }

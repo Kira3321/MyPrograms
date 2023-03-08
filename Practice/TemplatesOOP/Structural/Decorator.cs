@@ -6,14 +6,20 @@ public interface IPizza
     int GetCost();
 }
 
-public class Pizza: IPizza
+public class Pizza : IPizza
 {
-    public string GetDescription() => "Пицца";
+    public string GetDescription()
+    {
+        return "Пицца";
+    }
 
-    public int GetCost() => 100;
+    public int GetCost()
+    {
+        return 100;
+    }
 }
 
-public abstract class PizzaDecorator: IPizza
+public abstract class PizzaDecorator : IPizza
 {
     protected IPizza Pizza;
 
@@ -26,32 +32,51 @@ public abstract class PizzaDecorator: IPizza
     public abstract int GetCost();
 }
 
-public class PizzaMargarita: PizzaDecorator
+public class PizzaMargarita : PizzaDecorator
 {
-    public PizzaMargarita(IPizza pizza) : base(pizza) { }
+    public PizzaMargarita(IPizza pizza) : base(pizza)
+    {
+    }
 
-    public override string GetDescription() =>  Pizza.GetDescription() + " с кетцупом, пармезаном, и томатами";
+    public override string GetDescription()
+    {
+        return Pizza.GetDescription() + " с кетцупом, пармезаном, и томатами";
+    }
 
-    public override int GetCost() => Pizza.GetCost() + 30;
+    public override int GetCost()
+    {
+        return Pizza.GetCost() + 30;
+    }
 }
 
 public class PizzaHumMushrooms : PizzaDecorator
 {
-    public PizzaHumMushrooms(IPizza pizza) : base(pizza) {}
+    public PizzaHumMushrooms(IPizza pizza) : base(pizza)
+    {
+    }
 
-    public override string GetDescription() => Pizza.GetDescription() + " с ветчиной и грибами";
+    public override string GetDescription()
+    {
+        return Pizza.GetDescription() + " с ветчиной и грибами";
+    }
 
-    public override int GetCost() => Pizza.GetCost() + 50;
+    public override int GetCost()
+    {
+        return Pizza.GetCost() + 50;
+    }
 }
 
 public class Chef
 {
-    private IPizza _pizza;
-    
+    private readonly IPizza _pizza;
+
     public Chef(IPizza pizza)
     {
         _pizza = pizza;
     }
 
-    public IPizza DoMargarita() => new PizzaMargarita(_pizza);
+    public IPizza DoMargarita()
+    {
+        return new PizzaMargarita(_pizza);
+    }
 }
