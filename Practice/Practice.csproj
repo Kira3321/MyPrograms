@@ -6,17 +6,28 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+        <ApplicationIcon>Turttle.ico</ApplicationIcon>
+        <Title>Практика</Title>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\Practice.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="MainScenario" />
-      <Folder Include="TemplatesOOP\SOLID" />
+        <Folder Include="EntherNetApi\RestSharp"/>
+        <Folder Include="MainScenario"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="RestSharp" Version="109.0.0-preview.2"/>
     </ItemGroup>
 
 </Project>

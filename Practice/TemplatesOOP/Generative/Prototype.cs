@@ -2,12 +2,12 @@
 
 public abstract class Candy
 {
-    public string Name { get; private set; }
-
     protected Candy(string name)
     {
         Name = name;
     }
+
+    public string Name { get; }
 
     public abstract Candy Clone();
 }
@@ -18,7 +18,10 @@ public class StrawberryCandy : Candy
     {
     }
 
-    public override Candy Clone() => new StrawberryCandy(Name);
+    public override Candy Clone()
+    {
+        return new StrawberryCandy(Name);
+    }
 }
 
 public class IrisCandy : Candy
@@ -27,5 +30,8 @@ public class IrisCandy : Candy
     {
     }
 
-    public override Candy Clone() => new IrisCandy(Name);
+    public override Candy Clone()
+    {
+        return new IrisCandy(Name);
+    }
 }

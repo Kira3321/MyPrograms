@@ -7,17 +7,26 @@ public interface IStrategy
 
 public class BubbleSort : IStrategy
 {
-    public void Execute() => Console.WriteLine("Сортировка пузырьком");
+    public void Execute()
+    {
+        Console.WriteLine("Сортировка пузырьком");
+    }
 }
 
 public class MergeSort : IStrategy
 {
-    public void Execute() => Console.WriteLine("Сортировка слиянием");
+    public void Execute()
+    {
+        Console.WriteLine("Сортировка слиянием");
+    }
 }
 
 public class QuickSort : IStrategy
 {
-    public void Execute() => Console.WriteLine("Быстрая сортировка");
+    public void Execute()
+    {
+        Console.WriteLine("Быстрая сортировка");
+    }
 }
 
 public class Context
@@ -29,6 +38,13 @@ public class Context
         _strategy = strategy;
     }
 
-    public void SetStrategy(IStrategy strategy) => _strategy = strategy;
-    public void Execute() => _strategy.Execute();
+    public void SetStrategy(IStrategy strategy)
+    {
+        _strategy = strategy;
+    }
+
+    public void Execute()
+    {
+        _strategy.Execute();
+    }
 }
