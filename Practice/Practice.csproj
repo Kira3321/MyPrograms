@@ -21,13 +21,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="EntherNetApi\RestSharp"/>
-        <Folder Include="MainScenario"/>
+        <Folder Include="EntherNetApi\RestSharp" />
+        <Folder Include="MainScenario" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="RestSharp" Version="109.0.0-preview.2"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="RestSharp" Version="109.0.0-preview.2" />
     </ItemGroup>
 
 </Project>
