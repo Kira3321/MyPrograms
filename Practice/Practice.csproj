@@ -22,7 +22,7 @@
 
     <ItemGroup>
         <Folder Include="EntherNetApi\RestSharp" />
-        <Folder Include="MainScenario" />
+        <Folder Include="MainScenario\Algorithms" />
     </ItemGroup>
 
     <ItemGroup>
